@@ -31,7 +31,6 @@
 #include "stm32f4xx_it.h"
 #include "ucos_ii.h"
 #include "bsp_bluetooth.h"
-extern int ticks;
 /** @addtogroup Template_Project
   * @{
   */
@@ -167,9 +166,7 @@ void SysTick_Handler(void)
 #endif
     OS_ENTER_CRITICAL();  /* Tell uC/OS-II that we are starting an ISR */
     OSIntNesting++;
-		ticks++;
     OS_EXIT_CRITICAL();
-		//printf("Tick!Tick!\n");
     OSTimeTick();  /* Call uC/OS-II's OSTimeTick() */
     OSIntExit();  /* Tell uC/OS-II that we are leaving the ISR */	
 }

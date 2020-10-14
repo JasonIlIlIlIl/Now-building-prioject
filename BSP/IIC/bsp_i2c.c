@@ -1,4 +1,5 @@
 #include "bsp_i2c.h"
+#include "bsp_bluetooth.h"
 
 void GY_Config(void){
     GPIO_InitTypeDef GPIO_InitStructure;

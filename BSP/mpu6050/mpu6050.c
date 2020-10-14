@@ -3,15 +3,8 @@
 #include "bsp_i2c.h"
 
 void MPU6050_Init(void){
-    int  i=0,j=0;
     uint8_t data;
-    for(i=0;i<1000;i++)
-    {
-    for(j=0;j<1000;j++)
-    {
-      ;
-    }
-    }
+
     //唤醒MPU6050
     data=0x00;
     Sensor_Write(MPU6050_ADDRESS,MPU6050_RA_PWR_MGMT_1,1,&data);
@@ -20,13 +13,13 @@ void MPU6050_Init(void){
     data=0x07;
     Sensor_Write(MPU6050_ADDRESS,MPU6050_RA_SMPLRT_DIV,1,&data); 
     //MPU配置
-    data=0x06;
+    data=0x00;
     Sensor_Write(MPU6050_ADDRESS,MPU6050_RA_CONFIG,1,&data);
-    //加速度计配置   16G
-    data=0x08;
+    //加速度计配置   2G
+    data=0x00;
     Sensor_Write(MPU6050_ADDRESS,MPU6050_RA_ACCEL_CONFIG,1,&data);
-    //陀螺仪配置   2000
-    data=0x18;
+    //陀螺仪配置   250
+    data=0x00;
     Sensor_Write(MPU6050_ADDRESS,MPU6050_RA_GYRO_CONFIG,1,&data);
     //I2C_MST关
     data=0xC0;
@@ -58,7 +51,7 @@ void MPU6050ReadAcc(short *accData)
 {
     uint8_t buf[6];
     Sensor_Read(MPU6050_ADDRESS,MPU6050_ACC_OUT,6, buf);//读取加速度六字节数据
-    accData[0] = (buf[0] << 8) | buf[1];   //x高八位右移和第八位共同组成16位数据
+    accData[0] = (buf[0] << 8) | buf[1];   //x高八位左移和第八位共同组成16位数据
     accData[1] = (buf[2] << 8) | buf[3];   //y
     accData[2] = (buf[4] << 8) | buf[5];   //z
 }

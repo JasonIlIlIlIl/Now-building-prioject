@@ -44,3 +44,5 @@
 .\objects\apps.o: ..\..\BSP\mpu6050\mpu6050.h
 .\objects\apps.o: ..\..\BSP\hmc\hmc5883.h
 .\objects\apps.o: ..\..\BSP\LED\bsp_led.h
+.\objects\apps.o: ..\..\BSP\IMU\IMU.h
+.\objects\apps.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

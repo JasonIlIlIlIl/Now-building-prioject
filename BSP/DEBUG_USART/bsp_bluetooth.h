@@ -29,5 +29,8 @@
 void Debug_USART_Config(void);
 void Usart_SendByte( USART_TypeDef * pUSARTx, uint8_t ch);
 void Usart_SendString( USART_TypeDef * pUSARTx, char *str);
+uint8_t put_Int16(uint16_t ch);
+uint8_t put_char(uint8_t ch);
+uint8_t put_Float(float ch);
 #endif 
 

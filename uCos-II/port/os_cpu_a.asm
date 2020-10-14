@@ -125,6 +125,5 @@ PendSVHandler_nosave
 	ORR     LR, LR, #0x04                                       ; Ensure exception return uses process stack-FPU, PSP.
     CPSIE   I
     BX      LR                                                  ; Exception return will restore remaining context
-	NOP
     END
 

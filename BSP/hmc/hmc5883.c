@@ -3,18 +3,13 @@
 #include "bsp_i2c.h"
 
 void HMC_Init(void){
-    int  i=0,j=0;
     uint8_t data=0X00;
-    for(i=0;i<1000;i++)
-    {
-    for(j=0;j<1000;j++)
-    {
-      ;
-    }
-    }
-
+	
     Soft_Dely(0xFFFFF);
     Sensor_Write(HMC5883L_ADDRESS,HMC5883L_MODE,1,&data);
+		data = 0xE0;
+		Sensor_Write(HMC5883L_ADDRESS,HMC5883L_CONFIG_B,1,&data);
+		
 }
 
 void HMC_Read(short* hmc){

@@ -69,7 +69,7 @@ ARM Macro Assembler    Page 1
 ARM Macro Assembler    Page 2 
 
 
-   42 0000000E 4825            LDR              R0, =NVIC_SYSPRI14 ; Set the Pe
+   42 0000000E 4824            LDR              R0, =NVIC_SYSPRI14 ; Set the Pe
                                                             ndSV exception prio
                                                             rity
    43 00000010 F04F 01FF       LDR              R1, =NVIC_PENDSV_PRI
@@ -80,12 +80,12 @@ ARM Macro Assembler    Page 2
                                                              switch call
    47 00000018 F380 8809       MSR              PSP, R0
    48 0000001C         
-   49 0000001C 4822            LDR              R0, =OSRunning 
+   49 0000001C 4821            LDR              R0, =OSRunning 
                                                             ; OSRunning = TRUE
    50 0000001E 2101            MOVS             R1, #1
    51 00000020 7001            STRB             R1, [R0]
    52 00000022         
-   53 00000022 4822            LDR              R0, =NVIC_INT_CTRL ; Trigger th
+   53 00000022 4821            LDR              R0, =NVIC_INT_CTRL ; Trigger th
                                                             e PendSV exception 
                                                             (causes context swi
                                                             tch)
@@ -104,7 +104,7 @@ ARM Macro Assembler    Page 2
    63 0000002E         
    64 0000002E         
    65 0000002E         OSCtxSw
-   66 0000002E 481F            LDR              R0, =NVIC_INT_CTRL ; Trigger th
+   66 0000002E 481E            LDR              R0, =NVIC_INT_CTRL ; Trigger th
                                                             e PendSV exception 
                                                             (causes context swi
                                                             tch)
@@ -114,7 +114,7 @@ ARM Macro Assembler    Page 2
    70 00000038         
    71 00000038         
    72 00000038         OSIntCtxSw
-   73 00000038 481C            LDR              R0, =NVIC_INT_CTRL ; Trigger th
+   73 00000038 481B            LDR              R0, =NVIC_INT_CTRL ; Trigger th
                                                             e PendSV exception 
                                                             (causes context swi
                                                             tch)
@@ -154,7 +154,7 @@ ARM Macro Assembler    Page 3
                                                             egs r4-11 on proces
                                                             s stack    
    94 00000062         
-   95 00000062 4913            LDR              R1, =OSTCBCur ; OSTCBCur->OSTCB
+   95 00000062 4912            LDR              R1, =OSTCBCur ; OSTCBCur->OSTCB
                                                             StkPtr = SP;
    96 00000064 6809            LDR              R1, [R1]
    97 00000066 6008            STR              R0, [R1]    ; R0 is SP of proce
@@ -165,20 +165,20 @@ ARM Macro Assembler    Page 3
    99 00000068         PendSVHandler_nosave
   100 00000068 B500            PUSH             {R14}       ; Save LR exc_retur
                                                             n value
-  101 0000006A 4812            LDR              R0, =OSTaskSwHook 
+  101 0000006A 4811            LDR              R0, =OSTaskSwHook 
                                                             ; OSTaskSwHook();
   102 0000006C 4780            BLX              R0
   103 0000006E F85D EB04       POP              {R14}
   104 00000072         
-  105 00000072 4811            LDR              R0, =OSPrioCur ; OSPrioCur = OS
+  105 00000072 4810            LDR              R0, =OSPrioCur ; OSPrioCur = OS
                                                             PrioHighRdy;
-  106 00000074 4911            LDR              R1, =OSPrioHighRdy
+  106 00000074 4910            LDR              R1, =OSPrioHighRdy
   107 00000076 780A            LDRB             R2, [R1]
   108 00000078 7002            STRB             R2, [R0]
   109 0000007A         
-  110 0000007A 480D            LDR              R0, =OSTCBCur ; OSTCBCur  = OST
+  110 0000007A 480C            LDR              R0, =OSTCBCur ; OSTCBCur  = OST
                                                             CBHighRdy;
-  111 0000007C 4910            LDR              R1, =OSTCBHighRdy
+  111 0000007C 490F            LDR              R1, =OSTCBHighRdy
   112 0000007E 680A            LDR              R2, [R1]
   113 00000080 6002            STR              R2, [R0]
   114 00000082         
@@ -211,9 +211,8 @@ ARM Macro Assembler    Page 4
   127 0000009E 4770            BX               LR          ; Exception return 
                                                             will restore remain
                                                             ing context
-  128 000000A0 BF00            NOP
-  129 000000A2                 END
-              00 00 E000ED22 
+  128 000000A0                 END
+              E000ED22 
               00000000 
               E000ED04 
               00000000 

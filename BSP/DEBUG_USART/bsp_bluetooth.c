@@ -1,5 +1,12 @@
 #include "bsp_bluetooth.h"
 
+#define BYTE0(dwTemp)       (*(char *)(&dwTemp))
+#define BYTE1(dwTemp)       (*((char *)(&dwTemp) + 1))
+#define BYTE2(dwTemp)       (*((char *)(&dwTemp) + 2))
+#define BYTE3(dwTemp)       (*((char *)(&dwTemp) + 3))
+
+typedef union {unsigned char byte[4];float num;}t_floattobyte;
+
 
 void Debug_USART_Config(void)
 {
@@ -92,7 +99,12 @@ int fputc(int ch, FILE *f)
 		return (ch);
 }
 
-
+uint8_t put_char(uint8_t ch){
+		USART_SendData(DEBUG_USART, (uint8_t) ch);
+		while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TXE) == RESET);		
+	
+		return (ch);
+}
 int fgetc(FILE *f)
 {
 		
@@ -100,3 +112,38 @@ int fgetc(FILE *f)
 
 		return (int)USART_ReceiveData(DEBUG_USART);
 }
+
+
+uint8_t put_Int16(uint16_t ch){
+		uint8_t sum = 0;
+		USART_SendData(DEBUG_USART, BYTE1(ch));
+		while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TXE) == RESET);
+		USART_SendData(DEBUG_USART, BYTE0(ch));
+		while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TXE) == RESET);
+		sum += BYTE1(ch);
+		sum += BYTE0(ch);
+		return sum;
+}
+
+uint8_t put_Float(float ch){
+		t_floattobyte floattobyte;
+		uint8_t sum = 0;
+		floattobyte.num = ch;
+		USART_SendData(DEBUG_USART, floattobyte.byte[3]);
+		while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TXE) == RESET);
+		USART_SendData(DEBUG_USART, floattobyte.byte[2]);
+		while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TXE) == RESET);
+		USART_SendData(DEBUG_USART, floattobyte.byte[1]);
+		while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TXE) == RESET);
+		USART_SendData(DEBUG_USART, floattobyte.byte[0]);
+		while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TXE) == RESET);
+		sum += BYTE1(floattobyte.byte[3]);
+		sum += BYTE0(floattobyte.byte[2]);
+		sum += BYTE1(floattobyte.byte[1]);
+		sum += BYTE0(floattobyte.byte[0]);
+		return sum;
+}
+
+
+
+

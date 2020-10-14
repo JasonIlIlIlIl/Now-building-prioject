@@ -35,3 +35,5 @@
 .\objects\bsp_i2c.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dac.h
 .\objects\bsp_i2c.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dcmi.h
 .\objects\bsp_i2c.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fsmc.h
+.\objects\bsp_i2c.o: ..\..\BSP\DEBUG_USART\bsp_bluetooth.h
+.\objects\bsp_i2c.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

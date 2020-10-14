@@ -10,16 +10,15 @@
       <TargetName>固件库-工程模版</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pArmCC>5060750::V5.06 update 6 (build 750)::.\ARMCC</pArmCC>
       <pCCUsed>5060750::V5.06 update 6 (build 750)::.\ARMCC</pCCUsed>
-      <uAC6>8</uAC6>
+      <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32F401RETx</Device>
           <Vendor>STMicroelectronics</Vendor>
           <PackID>Keil.STM32F4xx_DFP.2.14.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
-          <Cpu>IROM(0x08000000,0x00080000) IRAM(0x20000000,0x00018000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ELITTLE</Cpu>
+          <Cpu>IRAM(0x20000000,0x00018000) IROM(0x08000000,0x00080000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
           <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0STM32F4xx_512 -FS08000000 -FL080000 -FP0($$Device:STM32F401RETx$CMSIS\Flash\STM32F4xx_512.FLM))</FlashDriverDll>
@@ -139,7 +138,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -329,8 +328,8 @@
             <uC99>0</uC99>
             <uGnu>0</uGnu>
             <useXO>0</useXO>
-            <v6Lang>0</v6Lang>
-            <v6LangP>0</v6LangP>
+            <v6Lang>3</v6Lang>
+            <v6LangP>3</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
             <v6Lto>0</v6Lto>
@@ -340,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F40_41xxx,</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\User;..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc;..\..\Libraries\CMSIS\Include;..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include;..\..\BSP\DEBUG_USART;..\..\uCos-II\port;..\..\uCos-II\source;..\..\APP;..\..\BSP\LED;..\..\BSP\IIC;..\..\BSP\hmc;..\..\BSP\mpu6050</IncludePath>
+              <IncludePath>..\..\User;..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc;..\..\Libraries\CMSIS\Include;..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include;..\..\BSP\DEBUG_USART;..\..\uCos-II\port;..\..\uCos-II\source;..\..\APP;..\..\BSP\LED;..\..\BSP\IIC;..\..\BSP\hmc;..\..\BSP\mpu6050;..\..\BSP\MS5611;..\..\BSP\CLKConfig;..\..\BSP\IMU</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -790,17 +789,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>DOC</GroupName>
-          <Files>
-            <File>
-              <FileName>必读说明.txt</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\必读说明.txt</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>DEBUG_USART</GroupName>
+          <GroupName>USART</GroupName>
           <Files>
             <File>
               <FileName>bsp_bluetooth.c</FileName>
@@ -941,6 +930,16 @@
               <FileName>hmc5883.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\BSP\hmc\hmc5883.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>IMU</GroupName>
+          <Files>
+            <File>
+              <FileName>IMU.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\BSP\IMU\IMU.c</FilePath>
             </File>
           </Files>
         </Group>

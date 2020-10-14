@@ -7,7 +7,7 @@
 #include "mpu6050.h"
 #include "hmc5883.h"
 #include "bsp_led.h"
-
+#include "IMU.h"
 
 #define APP_TASK0_STK_SIZE				512
 #define APP_TASK0_PRIO						16
@@ -15,6 +15,8 @@
 #define APP_TASK1_PRIO						14
 #define APP_TASK2_STK_SIZE				512
 #define APP_TASK2_PRIO						11
+
+
 extern OS_STK		App_Task0Stack[APP_TASK0_STK_SIZE];
 extern OS_STK		App_Task1Stack[APP_TASK1_STK_SIZE];
 extern OS_STK		App_Task2Stack[APP_TASK2_STK_SIZE];
