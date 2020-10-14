@@ -9,10 +9,10 @@ extern short acc[3], gyro[3], mag[3];
 
 extern double roll, pitch, yaw; // Roll and pitch are calculated using the accelerometer while yaw is calculated using the magnetometer
 
-extern double gyroXangle, gyroYangle, gyroZangle; // Angle calculate using the gyro only Ö»ÓÃÍÓÂÝÒÇ¼ÆËã½Ç¶È
-extern double compAngleX, compAngleY, compAngleZ; // Calculated angle using a complementary filter  ÓÃµç´Å¼Æ¼ÆËã½Ç¶È
-extern double kalAngleX, kalAngleY, kalAngleZ; // Calculated angle using a Kalman filter    ÓÃkalman¼ÆËã½Ç¶È
-//uint32_t timer,micros; //ÉÏÒ»´ÎÊ±¼äÓëµ±Ç°Ê±¼ä
+extern double gyroXangle, gyroYangle, gyroZangle; // Angle calculate using the gyro only Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½Ç¶ï¿½
+extern double compAngleX, compAngleY, compAngleZ; // Calculated angle using a complementary filter  ï¿½Ãµï¿½Å¼Æ¼ï¿½ï¿½ï¿½Ç¶ï¿½
+extern double kalAngleX, kalAngleY, kalAngleZ; // Calculated angle using a Kalman filter    ï¿½ï¿½kalmanï¿½ï¿½ï¿½ï¿½Ç¶ï¿½
+//uint32_t timer,micros; //ï¿½ï¿½Ò»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ëµ±Ç°Ê±ï¿½ï¿½
 extern float magOffset[3];
 extern double magGain[3];
 
@@ -82,6 +82,8 @@ void App_Task0(void *p_arg){
 		OSTimeDly(100);
 	}
 }
+
+
 void App_Task1(void *p_arg){
 	OS_CPU_SysTickInit();	
 	while(1)
@@ -105,9 +107,11 @@ void App_Task2(void *p_arg){
 }
 
 void BSP_Init(void){
+	TIM_config();
 	Debug_USART_Config();
 	GY_Config();
 	MPU6050_Init();
+
 	if(MPU6050ReadID()){
 		printf("MPU Init SUCCESS.\n");
 	}
