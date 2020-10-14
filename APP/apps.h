@@ -8,6 +8,9 @@
 #include "hmc5883.h"
 #include "bsp_led.h"
 #include "IMU.h"
+#include "TIM_in_out.h"
+#include "bsp_led.h"
+
 
 #define APP_TASK0_STK_SIZE				512
 #define APP_TASK0_PRIO						16
@@ -15,6 +18,8 @@
 #define APP_TASK1_PRIO						14
 #define APP_TASK2_STK_SIZE				512
 #define APP_TASK2_PRIO						11
+#define APP_TASK3_STK_SIZE				512
+#define APP_TASK3_PRIO						11
 
 
 extern OS_STK		App_Task0Stack[APP_TASK0_STK_SIZE];

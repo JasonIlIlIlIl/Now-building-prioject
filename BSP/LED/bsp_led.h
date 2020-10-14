@@ -2,7 +2,7 @@
 #define BSP_LED_H
 
 #include "stm32f4xx.h"
-
+#include "stm32f4xx_gpio.h"
 
 #define digitalHi(p,i)       {p->BSRRL=i;}
 #define digitalLo(p,i)       {p->BSRRH=i;}
