@@ -5,6 +5,10 @@
             "includePath": [
                 "${default}",
                 "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/APP",
+                "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/uCos-II/port",
+                "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/uCos-II/source",
+                "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/User",
+
                 "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/BSP/DEBUG_USART",
                 "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/BSP/hmc",
                 "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/BSP/IIC",
@@ -13,17 +17,17 @@
                 "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/BSP/mpu6050",
                 "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/BSP/MS5611",
                 "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/BSP/TIM",
+
                 "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/Libraries/CMSIS/Include",
                 "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/Libraries/CMSIS/Device/ST/STM32F4xx/Include",
                 "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/Libraries/STM32F4xx_StdPeriph_Driver/inc",
-                "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/uCos-II/port",
-                "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/uCos-II/source",
-                "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/User"
+                "/Users/jay_liu/Desktop/QUAR Drone/Current project /uCOSII/Libraries/STM32F4xx_StdPeriph_Driver/inc"
+                
             ],
             "defines": [],
             "macFrameworkPath": [],
             "compilerPath": "/usr/local/bin/gcc-10",
-            "cStandard": "gnu18",
+            "cStandard": "c99",
             "cppStandard": "gnu++14",
             "intelliSenseMode": "gcc-x64"
         }

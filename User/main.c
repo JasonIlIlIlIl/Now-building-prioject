@@ -1,9 +1,11 @@
 #include "stm32f4xx.h"
 #include "apps.h"
 
+//UCOS 任务
 OS_STK		App_Task0Stack[APP_TASK0_STK_SIZE];
 OS_STK		App_Task1Stack[APP_TASK1_STK_SIZE];
 OS_STK		App_Task2Stack[APP_TASK2_STK_SIZE];
+OS_STK 		App_Task3Stack[APP_TASK3_STK_SIZE];
 
 
 int main(void)
